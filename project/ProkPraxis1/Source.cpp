@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<string>
+#include "histogram.h"
 using namespace std;
 
 // Функция заполнения массива вводимыми числами
@@ -12,17 +13,6 @@ vector<double> input_numbers(int numbers_count) {
 	return numbers;
 }
 
-// Функция поиска минимума и максимума среди чисел
-void find_minmax(vector<double> numbers, const int numbers_count, double& min, double& max) {
-	min = numbers[0];
-	max = numbers[0];
-	for (int i = 1; i < numbers_count; i++)
-		if (numbers[i] < min)
-			min = numbers[i];
-		else
-			if (numbers[i] > max)
-				max = numbers[i];
-}
 
 // Функция вычисления частот корзин
 vector<int> make_histogram(vector<double> numbers, const int numbers_count, const int sections_count) {
@@ -166,7 +156,7 @@ void show_histogram_svg(const vector<int>& freak_sections, const int section_cou
 	const auto TEXT_WIDTH = 50;
 	const auto BIN_HEIGHT = 30;
 	const auto BLOCK_WIDTH = 10;
-	const double FREAK_LIMIT = 70;
+	const double FREAK_LIMIT = 25;
 
 	// Поиск максимальной частоты среди частот всех корзин
 	int max_freak = freak_sections[0];
